@@ -1,2 +1,40 @@
-<h1>Welcome to AgroMerc, {{name}}</h1>
-<h2>This is the full home page</h2>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<div class="container">
+    <form action="" method="get">
+        <div class="mb-3">
+            <label for="searchProduct" class="form-label">Buscar Producto:</label>
+            <input type="text" class="form-control" name="searchProduct" value="{{ searchTerm }}" />
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Categoría:</label>
+            <select class="form-select" name="category">
+                {% for category in categories %}
+                <option value="{{ category }}" {% if category == selected_category %}selected{% endif %}>{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+    <p>Buscando por {{ searchTerm }}</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for agro in agros %}
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="{{ agro.imagen.url }}">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ agro.title }}</h5>
+                    <p class="card-text">{{ agro.description }}</p>
+                    {% if agro.url %}
+                    <a href="{{ agro.url }}" class="btn btn-primary">Enlace del Producto</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br />
+    <br />
+</div>

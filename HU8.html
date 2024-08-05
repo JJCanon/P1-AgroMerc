@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactar al Vendedor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .product-details, .contact-form, .client-info, .message-history {
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-selection">
+            <h1>Seleccionar Producto</h1>
+            <label for="product">Producto:</label>
+            <select id="product">
+                <option value="product1" data-seller="Juan Pérez" data-phone="123456789" data-email="juan.perez@example.com">Producto de Ejemplo 1</option>
+                <option value="product2" data-seller="María Gómez" data-phone="987654321" data-email="maria.gomez@example.com">Producto de Ejemplo 2</option>
+                <option value="product3" data-seller="Carlos López" data-phone="456789123" data-email="carlos.lopez@example.com">Producto de Ejemplo 3</option>
+            </select>
+        </div>
+
+        <div class="product-details">
+            <h2>Detalles del Producto</h2>
+            <p><strong>Vendedor:</strong> <span id="seller-name">Juan Pérez</span></p>
+            <p><strong>Teléfono:</strong> <span id="seller-phone">123456789</span></p>
+            <p><strong>Email:</strong> <span id="seller-email">juan.perez@example.com</span></p>
+        </div>
+
+        <div class="client-info">
+            <h2>Información del Cliente</h2>
+            <form id="clientForm">
+                <label for="client-name">Nombre:</label>
+                <input type="text" id="client-name" placeholder="Tu nombre" required>
+
+                <label for="client-email">Correo Electrónico:</label>
+                <input type="email" id="client-email" placeholder="Tu correo electrónico" required>
+
+                <label for="client-phone">Número de Teléfono:</label>
+                <input type="tel" id="client-phone" placeholder="+57 Tu número de teléfono" required>
+            </form>
+        </div>
+
+        <div class="contact-form">
+            <h2>Contactar al Vendedor</h2>
+            <form id="contactForm">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" rows="5" placeholder="Ingrese su mensaje aquí..." required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="confirmation" style="color:green; display:none;">¡Mensaje enviado con éxito!</p>
+        </div>
+
+        <div class="message-history">
+            <h2>Historial de Mensajes</h2>
+            <div class="message">
+                <p><strong>Fecha:</strong> 2024-08-04</p>
+                <p><strong>Mensaje:</strong> Estoy interesado en comprar el producto. ¿Está disponible?</p>
+            </div>
+           
+        </div>
+    </div>
+
+    <script>
+       
+        document.getElementById('product').addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            document.getElementById('seller-name').textContent = selectedOption.getAttribute('data-seller');
+            document.getElementById('seller-phone').textContent = selectedOption.getAttribute('data-phone');
+            document.getElementById('seller-email').textContent = selectedOption.getAttribute('data-email');
+        });
+
+    
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            document.getElementById('confirmation').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('confirmation').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

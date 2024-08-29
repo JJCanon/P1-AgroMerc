@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header row align-content-center">
+      <div class="col">
+        <img src="{% static 'AgroMerc.jpg' %}" alt="AgroMerc"
+          class="img-fluid" />
+      </div>
+      <div class="col">
+        <h1>AgroMerc</h1>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-primary button-type"><a
+            href="{% url 'signIn' %}" class="link-opacity-100">Sign
+            In</a></button>
+      </div>
+    </div>
+    <!-- Header -->
+    <!-- Content -->
+    <div class="content">
+      <div class="col-md-2">
+        <h1>Content</h1>
+      </div>
+      <div class="col-md-8">
+        {% if not registered %}
+        <!-- Form -->
+        <div class="form-control">
+          <form method="post">
+            {% csrf_token %}
+            <div class="md-6">
+              <label class="form-text" for="name">Nombres completos</label>
+              <input class="form-control" type="text" name="name"
+                id="name">
+            </div>
+            <div class="md-6">
+              <label class="form-text" for="surnames">ApellidosCompletos</label>
+              <input class="form-control" type="text" name="surnames"
+                id="surnames">
+            </div>
+            <div class="md-6">
+              <label class="form-text" for="cedula">Número de Cédula</label>
+              <input class="form-control" type="text" name="cedula" id="cedula">
+              {% if existCedula %}
+              <div class="md-5">
+                <p>{{ textCedula }}</p>
+              </div>
+              {% endif %}
+            </div>
+            <div class="md-6">
+              <label class="form-text" for="phoneNumber">Numero de
+                celular</label>
+              <input class="form-control" type="text" name="phoneNumber"
+                id="phoneNumber">
+            </div>
+            <div class="md-6">
+              <label class="form-text" for="email">Correo electrónico</label>
+              <input class="form-control" type="text" name="email" id="email"
+                placeholder="example@example.com">
+              {% if existEmail %}
+              <div class="md-5">
+                <p>{{ textEmail }}</p>
+              </div>
+              {% endif %}
+              <div class="md-6">
+                <label class="form-text" for="userName">Nombre de
+                  usuario</label>
+                <input class="form-control" type="text" name="userName"
+                  id="userName">
+                {% if existUserName %}
+                <div class="md-5">
+                  <p>{{ textUserName }}</p>
+                </div>
+                {% endif %}
+              </div>
+              <div class="md-6">
+                <label class="form-text" for="password">Contraseña</label>
+                <input class="form-control" type="password" name="password"
+                  id="password">
+              </div>
+              <div class="md-6">
+                <label class="form-text" for="userType">
+                  Tipo de Usuario
+                </label>
+                <select class="form-select" name="userType"
+                  id="userType" aria-label="Default select example">
+                  <option selected value="buyer">Comprador</option>
+                  <option value="seller">Vendedor</option>
+                </select>
+              </div><br>
+              <div class="md-6">
+                <button type="submit"
+                  class="btn btn-primary mb-3">Registrar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- Form -->
+        {% else %}
+        <div class="col-md-12">
+          <h1 class="h-100">
+            Usuario registrado con exito
+          </h1>
+        </div>
+        <div class="md-10">
+          <button href="{% url 'signIn' %}" class="btn btn-light">
+            Iniciar sesión
+          </button>
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-2">
+        <h1>Content</h1>
+      </div>
+    </div>
+    <!-- Content -->
+    <!-- Footer -->
+    <div class="row footer">
+      <div class="col-2">
+        <img src="{% static 'AgroMerc.jpg' %} " class="card-img-bottom"
+          alt="AgroMerc" />
+      </div>
+      <div class="col">
+        <h1>AgroMerc</h1>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-success"><a
+            href="{% url 'agroMerc' %}"
+            class="link-success">About Us</a></button>
+      </div>
+    </div>
+    <!-- Footer -->
+  </body>
+</html>

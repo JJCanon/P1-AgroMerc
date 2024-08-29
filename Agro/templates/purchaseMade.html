@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous" />
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static "style.css" %}" />
+        <title>Compra</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="header row align-content-center">
+            <div class="col">
+                <img src="{% static 'AgroMerc.jpg' %}" alt="AgroMerc"
+                    class="img-fluid" />
+            </div>
+            <div class="col">
+                <h1>AgroMerc</h1>
+            </div>
+            <div class="col-2">
+                <!-- Conditional Seller -->
+                {% if seller %}
+                <button type="button" class="btn btn-success">
+                    <a href="producto">Agregar producto</a>
+                </button>
+                {% endif %}
+                <!-- End conditional-->
+                <button type="button" class="btn btn-success button-type">
+                    <a href="{% url "signIn" %}">Cerrar
+                        Sesión</a>
+                </button>
+            </div>
+        </div>
+        <!-- Header -->
+        <!-- Content -->
+        <div class="content">
+            <div class="col-md-2">
+                <h1 class="h1">Content</h1>
+            </div>
+            <div class="col">
+                <div class="col-md-7">
+                    <h1 class="h-100 text-bg-primary">
+                        <!-- conditional purchase made -->
+                         {% if purchaseMade %}
+                        Gracias por utilizar nuestros servicios
+                        <!-- conditional purchase not made -->
+                         {% elif purchaseCancel %}
+                        Lamentamos que no se concretara la compra
+                        <!-- End Conditional-->
+                        {% endif %}
+                    </h1>
+                    <button class="btn btn-primary btn-success">
+                        <a href="mainMenu" class="contact-line">
+                            <!-- conditional purchase made -->
+                            {% if purchaseMade %}
+                            Volver a comprar
+                            <!-- conditional purchase not made -->
+                            {% elif purchaseCancel %}
+                            Volver al menú principal
+                            <!-- End Conditional-->
+                            {% endif %}
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h1 class="h1">Content</h1>
+            </div>
+        </div>
+        <!-- Content -->
+         <!-- Footer -->
+        <div class="row footer">
+            <div class="col-2">
+                <img src="{% static 'AgroMerc.jpg' %} " class="card-img-bottom"
+                    alt="AgroMerc" />
+            </div>
+            <div class="col">
+                <h1>AgroMerc</h1>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-success"><a
+                        href="{% url 'agroMerc' %}"
+                        class="link-success">About Us</a></button>
+            </div>
+        </div>
+        <!-- Footer -->
+    </body>
+</html>

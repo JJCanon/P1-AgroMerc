@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous">
+        <!-- Styles -->
+        <link rel="stylesheet" href="style.css">
+        <title>Mis Productos</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="header row">
+            <div class="card-header">
+                <header class="header">
+                    <div class="columna">
+                        <div class="col">
+                            <img src="AgroMerc.jpg"
+                                class="img-fluid"
+                                alt="AgroMerc">
+                        </div>
+                        <div class="col">
+                            <h1>AgroMerc</h1>
+                        </div>
+                        <div class="col-2">
+                            <!-- Empty column for layout -->
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <!-- Header -->
+
+        <!-- Content -->
+        <div class="content">
+            <div class="col-md-2">
+                <h1>Content</h1>
+            </div>
+            <div class="col-md-8">
+                <div class="h-100">
+                    <h1>Mis Productos</h1>
+                </div>
+                <div class="list-group">
+                    <!-- product list -->
+                    <div class="md-6">
+                        <form method="get">
+                            <li>
+                                <input type="file" name="file" id="file">
+                                <!-- productos -->
+                            </li>
+                            <div class="btn btn-primary btn-danger">
+                                <button type="submit">Eliminar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end product list -->
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h1>Content</h1>
+            </div>
+        </div>
+        <!-- Content -->
+
+        <!-- Footer -->
+        <div class="footer row">
+            <footer class="blockquote-footer">
+                <div class="columna">
+                    <div class="col">
+                        <img src="AgroMerc.jpg" class="img-fluid"
+                            alt="AgroMerc">
+                    </div>
+                    <div class="col">
+                        <h1>AgroMerc</h1>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-success">
+                            <a href="link" class="link-success">About Us</a>
+                        </button>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- Footer -->
+    </body>
+</html>

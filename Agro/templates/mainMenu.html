@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous">
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static "style.css" %}">
+        <title>AgroMerc-Main menú</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="header row align-content-center">
+            <div class="col">
+                <img src="{% static 'AgroMerc.jpg' %}" alt="AgroMerc"
+                    class="img-fluid" />
+            </div>
+            <div class="col">
+                <h1>AgroMerc</h1>
+            </div>
+            <div class="col-2">
+                <!-- Conditional Seller -->
+                {% if seller %}
+                <button type="button" class="btn btn-success">
+                    <a href="producto">Agregar producto</a>
+                </button>
+                {% endif %}
+                <!-- End conditional-->
+                <button type="button" class="btn btn-success button-type">
+                    <a href="{% url "signIn" %}">Cerrar
+                        Sesión</a>
+                </button>
+            </div>
+        </div>
+        <!-- Header -->
+        <!-- Content -->
+        <div class="content">
+            <div class="col-md-2 sidebar">
+                <h1>Content</h1>
+            </div>
+            <div class="col content-center">
+                <div class="row">
+                    <div class="h-100 text-center">
+                        <h1>Welcome {{name}}</h1>
+                    </div>
+                    <div class="btn-group-vertical">
+                        <!-- for product in nameProducts-->
+                        {% for product in productsListName %}
+                        <form method="post" action="{% url "purchase" %}">
+                            {% csrf_token %}
+                            <label class="form-label">
+                                <ul class="list-group-item-info">
+                                    <li>
+                                        Nombre:
+                                        {{ product.name }}
+                                        {{product.specificName}}
+                                    </li>
+                                    <li>
+                                        Cantidad Máxima:
+                                        {{product.maxQuantity}}
+                                    </li>
+                                    <li>
+                                        Cantidad Mínima:
+                                        {{product.minQuantity}}
+                                    </li>
+                                    <li>
+                                        Unidad de Medida:
+                                        {{product.unit}}
+                                    </li>
+                                    <li>
+                                        Vendedor:
+                                        {{product.seller}}
+                                    </li>
+                                    <li>
+                                        <input type="text"
+                                            name="quantityOrdered_{{product.id}}_{{product.Name}}_{{product.specificName}}_{{product.id2}}"
+                                            class="input-group-text"
+                                            id="quantityOrdered_{{product.id}}"
+                                            placeholder="Ingrese la cantidad que desea Comprar">
+                                    </li>
+                                </ul>
+                                <button type="submit"
+                                    class="btn btn bg-success">
+                                    Comprar
+                                </button>
+                            </label>
+                        </form>
+                        <!-- End For-->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 sidebar">
+                <h1>Content</h1>
+            </div>
+        </div>
+        <!-- Content -->
+        <!-- Footer -->
+        <div class="row footer">
+            <div class="col-2">
+                <img src="{% static 'AgroMerc.jpg' %} " class="card-img-bottom"
+                    alt="AgroMerc" />
+            </div>
+            <div class="col">
+                <h1>AgroMerc</h1>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-success"><a
+                        href="{% url 'agroMerc' %}"
+                        class="link-success">About Us</a></button>
+            </div>
+        </div>
+        <!-- Footer -->
+    </body>
+</html>

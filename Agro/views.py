@@ -26,3 +26,6 @@ def home(request):
 def about(request):
     #return HttpResponse('<h1>Welcome to About page</h1>')
     return render(request, 'about.html')
+def about(request):
+    #return HttpResponse('<h1>Welcome to About page</h1>')
+    return render(request, 'AddProducts.html')

@@ -3,6 +3,7 @@ from pymongo import MongoClient
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Agro
 
 #MongoDB server client conection
 client = MongoClient("mongodb+srv://AgroMerc:AgroMerc2023@cluster0.5elomeg.mongodb.net")
@@ -180,3 +181,35 @@ def home(request):
 def about(request):
     #return HttpResponse('<h1>Welcome to About page</h1>')
     return render(request, 'about.html')
+
+def AddProducts(request):
+    if request.method == 'POST':
+        product_name = request.POST.get('productName')
+        specific_name = request.POST.get('specificName')
+        unit = request.POST.get('unit')
+        max_quantity = request.POST.get('maxQuantity')
+        min_quantity = request.POST.get('minQuiantity')
+
+        # Verifica si se recibieron todos los campos necesarios
+        if all([product_name, specific_name, unit, max_quantity, min_quantity]):
+            # Crea un nuevo documento para el producto
+            product_data = {
+                "productName": product_name,
+                "specificName": specific_name,
+                "unit": unit,
+                "maxQuantity": max_quantity,
+                "minQuantity": min_quantity
+            }
+            
+            # Inserta el producto en la colección de productos
+            colProducts.insert_one(product_data)
+            
+            # Redirige o muestra un mensaje de éxito
+            context = {'message': 'Producto agregado exitosamente'}
+        else:
+            # Muestra un mensaje de error si faltan datos
+            context = {'message': 'Faltan datos para agregar el producto'}
+        
+        return render(request, 'AddProducts.html', context)
+    
+    return render(request, 'AddProducts.html')

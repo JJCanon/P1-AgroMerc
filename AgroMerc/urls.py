@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from Agro import views as AgroViews
 
 from django.conf.urls.static import static
@@ -29,8 +29,10 @@ urlpatterns = [
     path('mainMenu',AgroViews.mainMenu,name='mainMenu'),
     path('purchase',AgroViews.purchase,name='purchase'),
     path('madeAPurchase',AgroViews.madeAPurchase,name="madeAPurchase"),
-    path('about', AgroViews.about),
-    path('addProduct',AgroViews.addProduct,name='addProduct'),
+    path('about', AgroViews.about,name='about'),
+    path('addProduct',AgroViews.AddProducts,name='addProduct'),
+    path('home',AgroViews.home,name='home'),
+    path('Taller2/',include('Taller2.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

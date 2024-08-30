@@ -1,5 +1,8 @@
+{% extends 'base.html' %}
+{% block content%}
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
 <div class="container">
@@ -19,14 +22,18 @@
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
     <p>Buscando por {{ searchTerm }}</p>
+    
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for agro in agros %}
         <div class="col">
             <div class="card">
-                <img class="card-img-top" src="{{ agro.imagen.url }}">
+                <img class="card-img-top" src="{% if agro.imagen %}{{ agro.imagen.url }}{% else %}{{ default_image_url }}{% endif %}" alt="{{ agro.title }}">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">{{ agro.title }}</h5>
-                    <p class="card-text">{{ agro.description }}</p>
+                    <p class="card-text"><strong>Precio:</strong> ${{ agro.price }}</p>
+                    <p class="card-text"><strong>Unidad:</strong> {{ agro.get_unit_display }}</p>
+                    <p class="card-text"><strong>Cantidad Máxima:</strong> {{ agro.max_quantity }}</p>
+                    <p class="card-text"><strong>Cantidad Mínima:</strong> {{ agro.min_quantity }}</p>
                     {% if agro.url %}
                     <a href="{{ agro.url }}" class="btn btn-primary">Enlace del Producto</a>
                     {% endif %}
@@ -38,3 +45,4 @@
     <br />
     <br />
 </div>
+{% endblock content%}

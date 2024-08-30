@@ -8,9 +8,19 @@ class Agro(models.Model):
         ('semillas', 'Semillas'),
         ('vegetales','Vegetales'),
     ]
+    UNIT_CHOICES = [
+        ('kilogramo', 'Kilogramo'),
+        ('gramos', 'Gramos'),
+        ('unidades','Unidades'),
+    ]
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=250)
+    price = models.IntegerField()
     imagen = models.ImageField(upload_to='Agro/images/')
     url = models.URLField(blank=True)
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    unit = models.CharField(max_length=15, choices=UNIT_CHOICES)
+    max_quantity = models.IntegerField()
+    min_quantity = models.IntegerField()
     
+    def __str__(self):
+        return self.title

@@ -32,7 +32,7 @@ urlpatterns = [
     path('about', AgroViews.about,name='about'),
     path('addProduct',AgroViews.AddProducts,name='addProduct'),
     path('home',AgroViews.home,name='home'),
-    path('Taller2/',include('Taller2.urls')),
+    path('Taller2/', include('Taller2.urls', namespace='Taller2')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,305 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header nav a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input, .search-bar select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+.person-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.person-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+}
+
+.person-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.person-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.person-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 150px;
+    margin-right: 15px;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+header nav {
+    margin-top: 10px;
+    text-align: right;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('../public/img/agro_hero.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero .btn-primary {
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.hero .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.features h3 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    text-align: center;
+}
+
+.feature-item img {
+    width: 150px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.feature-item h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.feature-item .btn-secondary {
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.feature-item .btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.testimonials h3 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.testimonial-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.testimonial-item {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    font-size: 20px;
+    color: #007BFF;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    background-color: black;
+}
+
+.header .img-fluid {
+    width: 8cm;
+}
+
+.header h1 {
+    color: white;
+    font-size: x-large;
+    margin: auto;
+}
+
+.header .col-2 {
+    margin: auto;
+}
+
+.header .col-2 button a {
+    color: black;
+    text-decoration: none;
+}
+
+.btn-dark a {
+    color: white;
+    text-decoration: none;
+}
+
+.header .button-type {
+    position: static;
+}
+
+.header .btn-success {
+    margin-right: 10px;
+}
+
+/* Content Styles */
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .col-md-2 {
+    background-color: black;
+}
+
+.content .text-bg-info {
+    background-color: green;
+}
+
+.content h1 {
+    text-align: center;
+}
+
+.content .col-md-8 {
+    align-content: center;
+}
+
+.content .col {
+    align-content: center;
+}
+
+.content .list-group {
+    padding: 10px;
+}
+
+.content .md-5 .p {
+    color: red;
+}
+
+.content .md-6 {
+    margin-bottom: 10px;
+}
+
+
+.sidebar {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.contact-line {
+    color: black;
+}
+
+.alert {
+    color: red;
+}
+
+
+/* Footer Styles */
+
+.footer {
+    background-color: black;
+}
+
+.footer .img-fluid {
+    width: 50px;
+}
+
+.footer h1 {
+    color: white;
+    font-size: x-large;
+    text-align: center;
+}
+
+.footer .btn-success {
+    margin-right: 10px;
+}
+
+.footer .btn-success a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-tittle {
+    color: white;
+    font-size: x-large;
+    margin: auto;
+}
